@@ -26,7 +26,7 @@ let app = new Vue({
   },
   methods: {
     xkcd() {
-      axios.get('https://xkcd.now.sh/' + this.number)
+      axios.get('https://xkcdapi.now.sh/' + this.number)
         .then(response => {
           this.current = response.data;
           return true;
@@ -52,7 +52,7 @@ If you prefer, you can instead use the `async/await` syntax. Let's change our `x
 ```
 async xkcd() {
   try {
-    const response = await axios.get('https://xkcd.now.sh/' + this.number);
+    const response = await axios.get('https://xkcdapi.now.sh/' + this.number);
     this.current = response.data;
   } catch (error) {
     console.log(error);
@@ -116,7 +116,7 @@ Second, modify the `xkcd` function to set and clear this variable:
     async xkcd() {
       try {
         this.loading = true;
-        const response = await axios.get('https://xkcd.now.sh/' + this.number);
+        const response = await axios.get('https://xkcdapi.now.sh/' + this.number);
         this.current = response.data;
         this.loading = false;
       } catch (error) {
@@ -162,7 +162,7 @@ We're also going to make a small change to the `xkcd` method in `script.js`, to 
     async xkcd() {
       try {
         this.loading = true;
-        const response = await axios.get('https://xkcd.now.sh/' + this.number);
+        const response = await axios.get('https://xkcdapi.now.sh/' + this.number);
         this.current = response.data;
         this.loading = false;
         this.number = response.data.num;
